@@ -1,3 +1,6 @@
+'''
+This is the code for train GW SkyLocator model by using Auto-Regressive Rational Quadratic Spline Flow.
+'''
 from pycbc.detector import Detector
 import numpy as np
 import math
