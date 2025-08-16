@@ -1,3 +1,6 @@
+'''
+Here is the code to generate training data for GW SkyLocator
+'''
 import pycbc
 from pycbc.waveform import get_td_waveform
 import gwpy
