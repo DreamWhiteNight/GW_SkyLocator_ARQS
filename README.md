@@ -11,4 +11,4 @@ The ARQS flow envolved from the masked auto-regressive flow ([MAF](https://arxiv
    
 # Sample Generation
 
-The training and test set samples used for this work were generated using the repository damonbeveridge/samplegen, which adds additional features to the sample generation code written by Timothy Gebhard and Niki Kilbertus described in the paper Convolutional neural networks: A magic bullet for gravitational-wave detection?
+The training and test set samples used for this work were generated via the code under the folder [/samplegen](https://github.com/DreamWhiteNight/GW_SkyLocator_ARQS/samplegen). This code contains the content to simulate the stain data of different detectors and to perform the matched filtering to obtain the SNR time series.
