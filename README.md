@@ -15,10 +15,21 @@ The training and test set samples used for this work were generated via the code
 
 Please notice that the execution of the sample generation code and the CBC-SKyNet requires the support of several packages; therefore, we suggest the user to install the required packages under a virtual environment. The easiest way to set up the virtual environmrnt is to install the ``conda'', and one can download the software and know the installation steps in [this webpage](https://docs.conda.io/projects/conda/en/stable/user-guide/install/index.html).
 
-Once you succesfully install the ``conda'', please use the following command to install the required packages under your virtual environment:
+Once you succesfully install the ``conda'', please use the following command to install the required packages under your virtual environment: (We provide the list of the required packages inside the envioronment.yml, and it can be obtained in this github.) 
 ``````javascript
 conda env create -f environment.yml
 ``````
+
+When the enviromnment is well set up, please activate it via ``conda'':
+``````javascript
+conda activate GW
+``````
+
+You can genetare the samples by the following command:
+``````javascript
+python Generate_injection_O3.py
+``````
+
 
 # Performing the CBC-SkyNet II
 
