@@ -13,13 +13,14 @@ The ARQS flow envolved from the masked auto-regressive flow ([MAF](https://arxiv
 
 The training and test set samples used for this work were generated via the code under the folder [/samplegen](https://github.com/DreamWhiteNight/GW_SkyLocator_ARQS/samplegen). This code contains the content to simulate the stain data of different detectors and to perform the matched filtering to obtain the SNR time series.
 
-# Performing the CBC-SkyNet II
+Please notice that the execution of the sample generation code and the CBC-SKyNet requires the support of several packages; therefore, we suggest the user to install the required packages under a virtual environment. The easiest way to set up the virtual environmrnt is to install the ``conda'', and one can download the software and know the installation steps in [this webpage](https://docs.conda.io/projects/conda/en/stable/user-guide/install/index.html).
 
-Please notice that the entire code of CBC-SKyNet requires the support of several packages; therefore, we create a ``xxx`` file for the user to install the required python pacakges following the command:
-
+Once you succesfully install the ``conda'', please use the following command to install the required packages under your virtual environment:
 ``````javascript
-pip install xxx
+conda env create -f environment.yml
 ``````
+
+# Performing the CBC-SkyNet II
 
 To train a model, simply perform the code ``Original_GW_time_TEST.py``:
 
