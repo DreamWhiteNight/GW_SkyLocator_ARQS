@@ -7,13 +7,13 @@ The major business in this repository is to figure out the sky localization (i.e
 
 For the complexed SNR time series input to the ResNet-34, we can obtained them through the matached filtering using the optimal GW approximants applied to the GW strain data. A short time SNR time series (0.1-0.2 sec) is enough to gather enough information to generate the reliable result in our method. For the intrinsic parameters input to the dense network, we considered three major parameters (i.e., amplitude ratio and phase lag behaved in different detectors and mergering time epoch) containing the sky localization information. In the updated tests, we included more data points relevant to the amplitude ratio and phase lag around the mergeing epoch in the training process in order to obtain more precise estimation of the final result.       
 
-The ARQS flow envolved from the masked auto-regressive flow ([MAF](https://arxiv.org/abs/1705.07057)) is the key component of the updated GW-Skylocator. It uses the MADE architecture to learn the transformation parameters that defines the mapping between the two parameter spaces. Similar to the MAF network, the features extracted from real and imaginary parts of the SNR time series, and intrinsic source parameters can be gatherered to map to the conditional probability distributions of the RA and Dec posteriors. Our code was developed via Python using the [TensorFlow 2](https://www.tensorflow.org/?hl=zh-tw) package.
+The ARQS flow envolved from the masked auto-regressive flow ([MAF](https://arxiv.org/abs/1705.07057)) is the key component of the updated GW-SkyLocator. It uses the MADE architecture to learn the transformation parameters that defines the mapping between the two parameter spaces. Similar to the MAF network, the features extracted from real and imaginary parts of the SNR time series, and intrinsic source parameters can be gatherered to map to the conditional probability distributions of the RA and Dec posteriors. Our code was developed via Python using the [TensorFlow 2](https://www.tensorflow.org/?hl=zh-tw) package.
    
 # Sample Generation
 
 The training and test set samples used for this work were generated via the code under the folder [/samplegen](https://github.com/DreamWhiteNight/GW_SkyLocator_ARQS/samplegen). This code contains the content to simulate the stain data of different detectors and to perform the matched filtering to obtain the SNR time series.
 
-Please notice that the execution of the sample generation code and the GW-Skylocator requires the support of several packages; therefore, we suggest the user to install the required packages under a virtual environment. The easiest way to set up the virtual environmrnt is to install the ``conda'', and one can download the software and know the installation steps in [this webpage](https://docs.conda.io/projects/conda/en/stable/user-guide/install/index.html).
+Please notice that the execution of the sample generation code and the GW-SkyLocator requires the support of several packages; therefore, we suggest the user to install the required packages under a virtual environment. The easiest way to set up the virtual environmrnt is to install the ``conda'', and one can download the software and know the installation steps in [this webpage](https://docs.conda.io/projects/conda/en/stable/user-guide/install/index.html).
 
 Once you succesfully install the ``conda'', please use the following command to install the required packages under your virtual environment: (We provide the list of the required packages inside the envioronment.yml, and it can be obtained in this github.) 
 ``````javascript
@@ -31,7 +31,7 @@ python Generate_injection_O3.py
 ``````
 
 
-# Performing the GW-Skylocator-ARQS ver.
+# Performing the GW-SkyLocator-ARQS ver.
 
 To train a model, simply perform the code ``Original_GW_time_TEST.py``:
 
