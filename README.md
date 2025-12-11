@@ -22,7 +22,7 @@ conda env create -f environment.yml
 
 When the enviromnment is well set up, please activate it via ``conda'':
 ``````javascript
-conda activate GW
+conda activate skylocator
 ``````
 
 You can genetare the samples by the following command:
