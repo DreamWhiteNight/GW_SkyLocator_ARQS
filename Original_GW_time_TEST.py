@@ -967,55 +967,6 @@ def nf_prob_density(flow, pixels, preds):
     return prob_density
 
 # Load the best model
-logging.info("Loading the best model for inference...")
-checkpoint = torch.load('3N_10_60.pth')
-encoder.load_state_dict(checkpoint['encoder_state_dict'])
-flow_model.load_state_dict(checkpoint['flow_state_dict'])
-encoder.eval()
-flow_model.eval()
 
-logging.info("Starting inference and sky map generation...")
 
-for i in range(2):
-    logging.info(f"Processing test sample {i+1}/2...")
-    x_test = X_test[i].unsqueeze(0)  # Shape: [1, 820]
-    metrics_params = metrics_test[i].unsqueeze(0)  # Shape: [1, 9]
-    intrinsic_params = intrinsic_test[i].unsqueeze(0)
-    time_params = time_test[i].unsqueeze(0)
-    # HEALPix parameters
-    nside = 16
-    npix = hp.nside2npix(nside)
-    theta, phi = hp.pix2ang(nside, np.arange(npix), nest=True)
-    
-    ra_pix = phi
-    dec_pix = -theta + 0.5 * np.pi
-    
-    gps_time_GW170817 = 1187008882.4  # Fixed merger time
-    
-    # Calculating the difference in GPS time between the fixed merger time used in training 
-    # and the variable merger times of the test samples
-    detector = Detector('H1')
-    delta = detector.gmst_estimate(gps_time_test[i].item()) - detector.gmst_estimate(gps_time_GW170817)
-    
-    # Translation of the RA angles to account for the change in merger times
-    ra_pix = np.mod(ra_pix - delta, 2.0 * np.pi)
-    
-    ra_pix = ra_pix - np.pi
-    ra_pix_x = np.cos(ra_pix)
-    ra_pix_y = np.sin(ra_pix)
-    
-    pixels = np.stack([ra_pix_x, ra_pix_y, dec_pix], axis=1)
-#    pixels = (pixels - y_mean)/y_std
-    pixels = torch.tensor(pixels, dtype=torch.float64).to(device)
-    
-    with torch.no_grad():
-        preds = encoder(x_test,metrics_params,time_params)
-        prob_density = nf_prob_density(flow_model, pixels, preds)
-    
-    # Apply adaptive refinement
-    hpmap, probs_nf_sample = bayestar_adaptive_grid_new(nf_prob_density, flow_model, preds, delta)
-    
-    # Save the sky map
-    sky_map_path = f'./train_time_cross/Test_{i}.fits'
-    io.fits.write_sky_map(sky_map_path, hpmap, nest=True)
-    logging.info(f"Skymap saved to {sky_map_path}")
+
