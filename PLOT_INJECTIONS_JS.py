@@ -130,8 +130,7 @@ def js_divergence(map1, map2, match_nside=True, nside_out=None):
 
     p_valid = mask_p
     q_valid = mask_q
-    p = normalize_map(p)
-    q = normalize_map(q)
+
     p_valid /= sum(p_valid)
     q_valid /= sum(q_valid)
     p = p_valid
