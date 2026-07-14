@@ -26,7 +26,7 @@ conda activate skylocator
 ``````
 
 You can genetare the samples by the following command:
-(The "O3" used in the filename means that we considered the PSD of the real O3 observations as the background of our jnjected signals.)
+(The "O3" used in the filename means that we considered the PSD of the real O3 observations as the background of our injected signals.)
 ``````javascript
 python Generate_injection_O3.py
 ``````
