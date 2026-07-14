@@ -50,6 +50,7 @@ logging.info("Starting script...")
 
 # Disable Astropy IERS auto download
 iers.conf.auto_download = False
+# time_start to time_end was used to count the time length of the 2K sampling rate data from -0.1 s to +0.025 s
 time_start = 0
 time_end = int(0.125*2048)
 def load_snr_and_injection_data(snr_file, params_file, idx_start=0, idx_end=None):
@@ -68,6 +69,7 @@ def load_snr_and_injection_data(snr_file, params_file, idx_start=0, idx_end=None
         spin_2 = params_f['spin2z'][()]
         # Load Injection_SNR and intrinsic parameters
         injection_snr = params_f['Injection_SNR'][idx_start:idx_end][()]
+        # params_f['ra'] is a sin value while params_f['dec'] is counted by tan  
         ra = 2.0 * np.pi * params_f['ra'][idx_start:idx_end][()]
         dec = np.arcsin(1.0 - 2.0 * params_f['dec'][idx_start:idx_end][()])
 
