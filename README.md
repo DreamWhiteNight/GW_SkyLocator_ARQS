@@ -42,4 +42,5 @@ python Original_GW_time_TEST.py
 
 The hyperparameters of the network and the training processes can be set in the file: ``configs/xxx``. Codes for plotting skymaps and generating P-P plots and histograms of contour areas can be found under the folder [/results](https://github.com/DreamWhiteNight/GW_SkyLocator_ARQS/results).
 Here comes some brief explanations to the codes under ``/results``:
--  ***yyy.py***: zzzzzzzzzz
+-  ***GW_localization_P-P_plot.py***: To plot the P-P plot 
+-  ***PLOT_INJECTIONS_JS.py***: To plot the credible region of a specific training model and to calculate the Jensen–Shannon divergence (JSD). In our paper, we compare the JSD between the GW-SkyLocator and the BayeSTAR.
