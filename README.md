@@ -26,9 +26,9 @@ conda activate skylocator
 ``````
 
 You can genetare the samples by the following command:
-(The "O3" used in the filename means that we considered the PSD of the real O3 observations as the background of our injected signals.)
+(The "O3" used in the filename means that we considered the PSD of the real O3 observations as the background of our injected signals The "BBH" used in the filename means that this code was applied to generate samples of binary black holes coalescence.)
 ``````javascript
-python Generate_injection_O3.py
+python Generate_injection_O3_BBH_HLV.py
 ``````
 
 
