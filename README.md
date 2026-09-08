@@ -40,7 +40,7 @@ To train a model, simply perform the code ``Original_GW_time_TEST.py``:
 python Original_GW_time_TEST.py
 ``````
 
-The hyperparameters of the network and the training processes can be modified in the file: ``Original_GW_time_TEST.py`` by editing the subroutines of ``ResidualUnit`` (for dense network), ``ResNet34Encoder`` (for ResNetwork), and ``NormalizingFlowModel`` (for ARQS flow). Codes for plotting skymaps and generating P-P plots and histograms of contour areas can be found under the folder [/results]([https://github.com/DreamWhiteNight/GW_SkyLocator_ARQS](https://github.com/DreamWhiteNight/GW_SkyLocator_ARQS/tree/main/results).
-Here comes some brief explanations to the codes under [/results]([https://github.com/DreamWhiteNight/GW_SkyLocator_ARQS](https://github.com/DreamWhiteNight/GW_SkyLocator_ARQS/tree/main/results):
+The hyperparameters of the network and the training processes can be modified in the file: ``Original_GW_time_TEST.py`` by editing the subroutines of ``ResidualUnit`` (for dense network), ``ResNet34Encoder`` (for ResNetwork), and ``NormalizingFlowModel`` (for ARQS flow). Codes for plotting skymaps and generating P-P plots and histograms of contour areas can be found under the folder [/results](https://github.com/DreamWhiteNight/GW_SkyLocator_ARQS/tree/main/results).
+Here comes some brief explanations to the codes under [/results](https://github.com/DreamWhiteNight/GW_SkyLocator_ARQS/tree/main/results):
 -  ***GW_localization_P-P_plot.py***: To plot the P-P plot of a specific training model
 -  ***PLOT_INJECTIONS_JS.py***: To plot the credible region of a specific training model and to calculate the Jensen–Shannon divergence (JSD). In our paper, we used the JSD to compare the 2-dimensional posterior distribution (of R.A. and Dec.) between the results obtained from the GW-SkyLocator and the BayeSTAR.
