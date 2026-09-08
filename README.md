@@ -26,7 +26,7 @@ conda activate skylocator
 ``````
 
 You can genetare the samples by the following command:
-(The "O3" appended in the filename means that we considered the PSD of the real O3 observations as the background of our injected signals The "BBH" appended in the filename means that this code was applied to generate samples of binary black holes coalescence. "HLV" appended in the filename means that this code can simulate the H1 [Handford], L1 [Livingston] and V1 [Virgo] data )
+(The "O3" appended in the filename means that we considered the PSD of the real O3 observations as the background of our injected signals The "BBH" appended in the filename means that this code was applied to generate samples of binary black holes coalescence. "HLV" appended in the filename means that this code can simulate the H1 [Hanford], L1 [Livingston] and V1 [Virgo] data.)
 ``````javascript
 python Generate_injection_O3_BBH_HLV.py
 ``````
@@ -42,5 +42,5 @@ python Original_GW_time_TEST.py
 
 The hyperparameters of the network and the training processes can be set in the file: ``configs/xxx``. Codes for plotting skymaps and generating P-P plots and histograms of contour areas can be found under the folder [/results](https://github.com/DreamWhiteNight/GW_SkyLocator_ARQS/results).
 Here comes some brief explanations to the codes under ``/results``:
--  ***GW_localization_P-P_plot.py***: To plot the P-P plot 
--  ***PLOT_INJECTIONS_JS.py***: To plot the credible region of a specific training model and to calculate the Jensen–Shannon divergence (JSD). In our paper, we compare the JSD between the GW-SkyLocator and the BayeSTAR.
+-  ***GW_localization_P-P_plot.py***: To plot the P-P plot of a specific training model
+-  ***PLOT_INJECTIONS_JS.py***: To plot the credible region of a specific training model and to calculate the Jensen–Shannon divergence (JSD). In our paper, we used the JSD to compare the 2-dimensional posterior distribution (of R.A. and Dec.) between the results obtained from the GW-SkyLocator and the BayeSTAR.
