@@ -21,38 +21,8 @@ def normalize_map(m):
         raise ValueError("Map has zero total probability.")
     return m / total
 
-'''
-def match_resolution(map1, map2, nside_out=None):
-    """
-    Match two HEALPix maps to the same NSIDE using interpolation.
-    Default: upgrade both to the higher NSIDE.
-    """
-    nside1 = hp.get_nside(map1)
-    nside2 = hp.get_nside(map2)
-
-    if nside_out is None:
-        nside_out = max(nside1, nside2)
-
-    map1_resampled = hp.ud_grade(map1, nside_out=nside_out, order_in='NEST', order_out='NEST')
-    map2_resampled = hp.ud_grade(map2, nside_out=nside_out, order_in='NEST', order_out='NEST')
-
-    return map1_resampled, map2_resampled
-'''
 def match_pdf_size(p1, p2, num=None):
-    """
-    Interpolate two 1D PDFs to the same size without distorting distribution.
-
-    Parameters
-    ----------
-    p1, p2 : arrays
-        Input probability densities
-    num : int or None
-        Target size (default = max length)
-
-    Returns
-    -------
-    x, p1_new, p2_new
-    """
+    
 
     if num is None:
         num = max(len(p1), len(p2))
@@ -83,32 +53,6 @@ def kl_divergence(p, q, eps=1e-12):
     q = np.clip(q, eps, None)
     return np.sum(p * np.log2(p / q))
 def js_divergence(map1, map2, match_nside=True, nside_out=None):
-    """
-    Compute Jensen-Shannon divergence between two HEALPix probability maps.
-
-    Parameters:
-    - map1, map2: input HEALPix maps
-    - match_nside: whether to resample to same resolution
-    - nside_out: target NSIDE (optional)
-
-    Returns:
-    - JS divergence (scalar)
-    """
-    # Match resolution if needed
-    #if match_nside:
-        #p,q = match_resolution(map1, map2, nside_out=nside_out)
-    #p,q = match_pdf_size(map1,map2)
-    '''
-    if len(map1) != len(map2):
-         x_fine = range(len(map2))
-         pf = interp1d(range(len(map1)),map1,kind='linear',bounds_error=False, fill_value="extrapolate")
-         p = pf(x_fine)
-         q = map2
-         print(p,q)
-    else:
-         p = map1
-         q = map2
-    '''
     p = map1
     q = map2
     print(p,q)
