@@ -54,7 +54,7 @@ def generate(i):
     inclination *= np.pi
     m1 = float(np.random.randint(5,50)) + np.round(random.random(), decimals = 3)
     m2 = float(np.random.randint(5,50)) + np.round(random.random(), decimals = 3)
-    distance = np.random.randint(300,1000)
+    distance = np.random.randint(300,3000)
     #distance = 100
     print('parameter done')
     if m1 < m2 :
