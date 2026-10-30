@@ -216,4 +216,3 @@ dependencies:
       - toolz==1.0.0
       - tqdm==4.67.0
       - zarr==2.18.3
-prefix: /home/lupin/anaconda3/envs/skylocator
