@@ -205,8 +205,8 @@ def standardize_data(X_train_real, X_test_real):
 
 
 # Stack real and imaginary parts
-X_train = np.hstack((X_train_real, X_train_imag*(1j)))
-X_test = np.hstack((X_test_real, X_test_imag*(1j)))
+X_train = np.hstack((X_train_real, X_train_imag))
+
 
 # Compute amplitude ratios and phase lags at the merger
 logging.info("Computing amplitude ratios and phase lags at merger...")
@@ -547,7 +547,7 @@ metrics_dim = metrics_train.shape[1]  # 9 (time diffs + amp ratios + phase lags)
 intrinsic_dim = intrinsic_train.shape[-1]
 encoder = ResNet34Encoder(input_channels,metrics_dim)
 encoder = encoder.to(device).double()
-print(time_train.shape)
+print('input_shape',X_train.shape)
 # Instantiate the normalizing flow
 encoder_output_dim = topk_x+topk_metrics  # Fr3om ResNet and metrics MLP\t
 flow_model = NormalizingFlowModel(
@@ -591,6 +591,7 @@ val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 train_losses = []
 val_losses = []
 logging.info("Starting training...")
+'''
 checkpoint = torch.load('best_epoch133.pth')
 encoder.load_state_dict(checkpoint['encoder_state_dict'])
 flow_model.load_state_dict(checkpoint['flow_state_dict'])
@@ -598,9 +599,11 @@ optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
 start_epoch = checkpoint['epoch'] + 1
 train_losses = checkpoint['train_loss']
 val_losses = checkpoint['val_loss']
+
 optimizer = optim.Adam(list(encoder.parameters()) + list(flow_model.parameters()), lr=1e-3, weight_decay=1e-4)
+'''
 for epoch in range(num_epochs):
-    epoch += start_epoch
+    #epoch += start_epoch
     encoder.train()
     flow_model.train()
     running_loss = 0.0
