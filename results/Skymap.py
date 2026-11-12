@@ -812,7 +812,7 @@ for k in range(1000):
     
     gps_time_GW170817 = 1187008882.4  # Fixed merger time
     
-    # Calculating the difference in GPS time between the fixed merger time used in training 
+    # Calculating the GMST difference between the fixed merger time used in training 
     # and the variable merger times of the test samples
     detector = Detector('H1')
     delta = detector.gmst_estimate(gps_time_test[k].item()) - detector.gmst_estimate(gps_time_GW170817)
